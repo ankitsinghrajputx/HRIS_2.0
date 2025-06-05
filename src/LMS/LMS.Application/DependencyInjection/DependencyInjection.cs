@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR.NotificationPublishers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LMS.Api.DependencyInjection
 {
@@ -6,6 +7,12 @@ namespace LMS.Api.DependencyInjection
     {
         public static IServiceCollection AddApplicationDI(this IServiceCollection services)
         {
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+                cfg.NotificationPublisher = new TaskWhenAllPublisher();
+            });
+
             return services;
         }
     }

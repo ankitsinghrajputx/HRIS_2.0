@@ -1,4 +1,6 @@
-﻿using LMS.Infrastructure.Data;
+﻿using LMS.Core.Interfaces;
+using LMS.Infrastructure.Data;
+using LMS.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +18,10 @@ namespace LMS.Infrastructure.DependencyInjection
         {
             services.AddDbContext<LmsDbContext>(options =>
             {
-                options.UseSqlServer("Server=6826ANKITK5288L\\SQLEXPRESS;Database=LeaveDB;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true");
+                options.UseSqlServer("Server=6826ANKITK5288L\\SQLEXPRESS;Database=HRIS_Leave;User Id=sa;Password=Microsoft#1234;Encrypt=True;TrustServerCertificate=True;MultipleActiveResultSets=True;");
             });
+
+            services.AddScoped<ILeaveRepository, LeaveRepository>();
             return services;
         }
     }
