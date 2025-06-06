@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace LMS.Application.Commands
 {
 
-    public class AddLeaveCommand(LeaveEntity leaveEntity) : IRequest<LeaveEntity> 
+    public record AddLeaveCommand(LeaveEntity leaveEntity) : IRequest<LeaveEntity> 
     {
         public LeaveEntity LeaveEntity { get; } = leaveEntity;
     }

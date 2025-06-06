@@ -2,7 +2,7 @@
 
 namespace LMS.Api.DependencyInjection
 {
-    public static class DependencyInjection
+    public static class DependencyInjectionApi
     {
         public static IServiceCollection AddAppDI(this IServiceCollection services, IConfiguration configuration)
         {

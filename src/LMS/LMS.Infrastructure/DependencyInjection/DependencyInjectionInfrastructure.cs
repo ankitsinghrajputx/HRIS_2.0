@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace LMS.Infrastructure.DependencyInjection
 {
-    public static class DependencyInjection
+    public static class DependencyInjectionInfrastructure
     {
         public static IServiceCollection AddInfrastructureDI(this IServiceCollection services)
         {

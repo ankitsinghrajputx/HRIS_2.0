@@ -5,7 +5,7 @@ using MediatR;
 namespace LMS.Application.Commands
 {
 
-    public class UpdateLeaveCommand(Guid leaveId, LeaveEntity leaveEntity) : IRequest<LeaveEntity> 
+    public record UpdateLeaveCommand(Guid leaveId, LeaveEntity leaveEntity) : IRequest<LeaveEntity> 
     {
         public Guid LeaveId { get; } = leaveId;
         public LeaveEntity LeaveEntity { get; } = leaveEntity;
